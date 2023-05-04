@@ -60,3 +60,48 @@ const posts = [
     created: "2021-03-05",
   },
 ];
+
+//---->
+
+const postList = document.querySelector(".posts-list");
+const post = document.querySelector(".post");
+postCounter = -0;
+
+for (counter = 0; counter <= posts.length; counter++) {
+  generatePost();
+}
+
+function generatePost() {
+  postCounter++;
+  let newPost = post.cloneNode(true);
+
+  console.log(newPost);
+  document.querySelector(".post-meta__author").innerHTML =
+    posts[postCounter].author.name;
+  document.querySelector(
+    ".post-meta__icon"
+  ).innerHTML = `<img class="profile-pic" src="${posts[postCounter].author.image}"></img>`;
+  document.querySelector(".post-meta__time");
+
+  document.querySelector(".post__text").innerHTML = posts[postCounter].content;
+  document.querySelector(
+    ".post__image"
+  ).innerHTML = `<img class="post__image" src="${posts[postCounter].media}"></img>`;
+
+  document.querySelector(".js-likes-counter").innerHTML =
+    posts[postCounter].likes;
+
+  console.log(postCounter);
+  postList.appendChild(newPost);
+}
+
+//fuzione che genera un numer ocasuale
+function getRandomNumber() {
+  let randomNumber = Math.floor(Math.random() * 99) + 1;
+  console.log(randomNumber);
+  return randomNumber;
+}
+
+//obbiettivi
+/* generate in maniera dinamica le info del post
+ */

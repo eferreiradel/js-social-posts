@@ -6,6 +6,7 @@
 }
 
 body {
+  height: 200vh;
   font-family: system-ui, sans-serif;
   background-color: #023047;
   color: #050505;
