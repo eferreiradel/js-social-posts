@@ -1,17 +1,5 @@
 const posts = [
   {
-    id: 1,
-    content:
-      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-    media: "https://unsplash.it/600/300?image=171",
-    author: {
-      name: "Phil Mangione",
-      image: "https://unsplash.it/300/300?image=15",
-    },
-    likes: 80,
-    created: "2021-06-25",
-  },
-  {
     id: 2,
     content:
       "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
@@ -63,37 +51,42 @@ const posts = [
 
 //---->
 
-console.log("adad");
-
 const postList = document.querySelector(".posts-list");
 const post = document.querySelector(".post");
-postCounter = -0;
 
-for (counter = 0; counter <= posts.length; counter++) {
-  generatePost();
-}
+let altro = document.querySelector(".siamodentro");
+console.log(altro);
 
 function generatePost() {
-  postCounter++;
-  let newPost = post.cloneNode(true);
+  for (counter = 0; counter < posts.length; counter++) {
+    let newPost = post.cloneNode(true);
+    newPost.setAttribute("id", posts[counter].id);
 
-  post.setAttribute("id", 1);
+    document.querySelector(".post-meta__author").innerHTML =
+      posts[counter].author.name;
+    document.querySelector(
+      ".post-meta__icon"
+    ).innerHTML = `<img class="profile-pic" src="${posts[counter].author.image}"></img>`;
+    document.querySelector(".post-meta__time");
 
-  document.querySelector(".post-meta__author").innerHTML =
-    posts[postCounter].author.name;
-  document.querySelector(
-    ".post-meta__icon"
-  ).innerHTML = `<img class="profile-pic" src="${posts[postCounter].author.image}"></img>`;
-  document.querySelector(".post-meta__time");
+    document.querySelector(
+      ".post__text"
+    ).innerHTML = `${posts[counter].content}`;
+    document.querySelector(
+      ".post__image"
+    ).innerHTML = `<img class="post__image" src="${posts[counter].media}"></img>`;
 
-  document.querySelector(".post__text").innerHTML = posts[postCounter].content;
-  document.querySelector(
-    ".post__image"
-  ).innerHTML = `<img class="post__image" src="${posts[postCounter].media}"></img>`;
+    document.querySelector(".js-likes-counter").innerHTML =
+      posts[counter].likes;
 
-  document.querySelector(".js-likes-counter").innerHTML =
-    posts[postCounter].likes;
-
-  console.log(postCounter);
-  postList.appendChild(newPost);
+    console.log(counter);
+    postList.appendChild(newPost);
+  }
 }
+
+document.querySelectorAll(".like-button").forEach((item) => {
+  item.addEventListener("click", () => {
+    item.classList.add("like-button--liked");
+    console.log;
+  });
+});

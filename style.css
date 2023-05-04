@@ -17,6 +17,14 @@ h1 {
   color: white;
 }
 
+.debug {
+  background-color: #0cd977;
+}
+
+.hide {
+  display: none;
+}
+
 .main-title {
   text-align: center;
   margin: 24px 0;
