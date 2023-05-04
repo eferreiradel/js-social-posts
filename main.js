@@ -63,6 +63,8 @@ const posts = [
 
 //---->
 
+console.log("adad");
+
 const postList = document.querySelector(".posts-list");
 const post = document.querySelector(".post");
 postCounter = -0;
@@ -75,7 +77,8 @@ function generatePost() {
   postCounter++;
   let newPost = post.cloneNode(true);
 
-  console.log(newPost);
+  post.setAttribute("id", 1);
+
   document.querySelector(".post-meta__author").innerHTML =
     posts[postCounter].author.name;
   document.querySelector(
@@ -94,14 +97,3 @@ function generatePost() {
   console.log(postCounter);
   postList.appendChild(newPost);
 }
-
-//fuzione che genera un numer ocasuale
-function getRandomNumber() {
-  let randomNumber = Math.floor(Math.random() * 99) + 1;
-  console.log(randomNumber);
-  return randomNumber;
-}
-
-//obbiettivi
-/* generate in maniera dinamica le info del post
- */
