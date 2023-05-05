@@ -54,9 +54,7 @@ const posts = [
 const postList = document.querySelector(".posts-list");
 const post = document.querySelector(".post");
 
-let altro = document.querySelector(".siamodentro");
-console.log(altro);
-
+generatePost();
 function generatePost() {
   for (counter = 0; counter < posts.length; counter++) {
     let newPost = post.cloneNode(true);
@@ -87,6 +85,5 @@ function generatePost() {
 document.querySelectorAll(".like-button").forEach((item) => {
   item.addEventListener("click", () => {
     item.classList.add("like-button--liked");
-    console.log;
   });
 });
